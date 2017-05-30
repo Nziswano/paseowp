@@ -39,6 +39,13 @@
     "johnpbloch/wordpress-core": ">=4.7",
     "wpackagist-plugin/unyson": ">=2.6"
   },
+  "require-dev": {
+    "wpackagist-plugin/theme-check": ">=20160523",
+    "wpackagist-plugin/wordpress-reset": ">=1.4",
+    "wpackagist-plugin/log-deprecated-notices": ">=0.4",
+    "wpackagist-plugin/debug-bar":">=0.9",
+    "wpackagist-plugin/wordpress-importer": ">=0.6.3"
+  },
   "repositories": [
     {
       "type": "composer",

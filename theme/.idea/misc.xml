@@ -1,8 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="JavaScriptSettings">
+    <option name="languageLevel" value="ES6" />
+  </component>
   <component name="JsBowerSettings">
-    <exe-path>$USER_HOME$/.nvm/versions/node/v7.2.1/bin/bower</exe-path>
-    <config-path />
+    <node-interpreter value="project" />
+    <exe-path>$USER_HOME$/.nvm/versions/node/v7.10.0/bin/bower</exe-path>
+    <config-path>$PROJECT_DIR$/../../theme/bower.json</config-path>
+  </component>
+  <component name="JsFlowSettings">
+    <service-enabled>false</service-enabled>
+    <exe-path />
+    <annotation-enable>false</annotation-enable>
+    <other-services-enabled>false</other-services-enabled>
+  </component>
+  <component name="ProjectDictionaryState">
+    <dictionary name="themartins" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
@@ -20,8 +33,9 @@
       </profile-state>
     </entry>
   </component>
-  <component name="SvnConfiguration">
-    <configuration>$USER_HOME$/.subversion</configuration>
+  <component name="StylintProjectComponent">
+    <option name="stylintExecutable" value="$USER_HOME$/.nvm/versions/node/v7.10.0/bin/stylint" />
+    <option name="pluginEnabled" value="true" />
   </component>
   <component name="VagrantProjectSettings">
     <option name="instanceFolder" value="" />

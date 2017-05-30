@@ -43,7 +43,8 @@
     "wpackagist-theme/givingpress-lite": ">=1.7.7",
     "wpackagist-theme/charitas-lite": ">=1.0.6",
     "wpackagist-theme/salt":">=1.6.2",
-    "wpackagist-theme/restful":">=1.2.3"
+    "wpackagist-theme/restful":">=1.2.3",
+    "zurb/foundation": "^6.3"
   },
   "require-dev": {
     "wpackagist-plugin/theme-check": ">=20160523",

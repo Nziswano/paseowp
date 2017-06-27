@@ -24,6 +24,7 @@
     "source": "http://core.trac.wordpress.org/browser"
   },
   "extra": {
+    "wordpress-install-dir": "public",
     "installer-paths": {
       "wordpress/wp-content/plugins/{$name}":[
         "type:wordpress-plugin"
@@ -35,23 +36,23 @@
   },
   "require": {
     "php": ">=5.3.2",
-    "johnpbloch/wordpress-core-installer": ">=0.2",
-    "johnpbloch/wordpress-core": ">=4.7",
-    "wpackagist-plugin/unyson": ">=2.6",
-    "wpackagist-theme/hana": ">=1.0.9",
-    "wpackagist-theme/charitize": ">=1.0.6",
-    "wpackagist-theme/givingpress-lite": ">=1.7.7",
-    "wpackagist-theme/charitas-lite": ">=1.0.6",
-    "wpackagist-theme/salt":">=1.6.2",
-    "wpackagist-theme/restful":">=1.2.3",
-    "zurb/foundation": "^6.3"
+    "johnpbloch/wordpress-core-installer": "~0.2",
+    "johnpbloch/wordpress-core": "~4.7",
+    "wpackagist-theme/hana": "~1.0.9",
+    "wpackagist-theme/charitize": "~1.0.6",
+    "wpackagist-theme/givingpress-lite": "~1.7.7",
+    "wpackagist-theme/charitas-lite": "~1.0.6",
+    "wpackagist-theme/salt":"~1.6.2",
+    "wpackagist-theme/restful":"~1.2.3"
   },
   "require-dev": {
     "wpackagist-plugin/theme-check": ">=20160523",
     "wpackagist-plugin/wordpress-reset": ">=1.4",
     "wpackagist-plugin/log-deprecated-notices": ">=0.4",
     "wpackagist-plugin/debug-bar":">=0.9",
-    "wpackagist-plugin/wordpress-importer": ">=0.6.3"
+    "wpackagist-plugin/wordpress-importer": ">=0.6.3",
+     "zurb/foundation": "~6.3",
+     "phpunit/phpunit": "~6.2"
   },
   "repositories": [
     {

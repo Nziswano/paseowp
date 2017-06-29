@@ -40,6 +40,8 @@
     "php": "~7",
     "johnpbloch/wordpress-core-installer": "~0.2",
     "johnpbloch/wordpress-core": "~4.7",
+    "wpackagist-theme/spacious": "~1.4",
+    "wpackagist-theme/zerif-lite": "~1.8",
     "wpackagist-plugin/wordpress-mu-domain-mapping":"~0.5",
     "wpackagist-plugin/buddypress": "~2.8.2",
     "wpackagist-plugin/bp-my-home":"~2",

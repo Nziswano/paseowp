@@ -57,13 +57,22 @@
     "wpackagist-plugin/debug-bar":">=0.9",
     "wpackagist-plugin/wordpress-importer": ">=0.6.3",
     "wpackagist-plugin/debug-bar-timber":"~0.3",
-    "zurb/foundation": "~6.3",
+    "catenare/paseo-theme":"dev-master",
+    "upstatement/timber-starter-theme":"dev-master",
     "phpunit/phpunit": "~6.2"
   },
   "repositories": [
     {
       "type": "composer",
       "url": "https://wpackagist.org"
-    }
+    },
+    {
+      "type":"vcs",
+      "url":"https://github.com/catenare/starter-theme"
+
+    },
+     { "type": "vcs",
+      "url": "https://github.com/catenare/paseo-theme"
+     }
   ]
 }

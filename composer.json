@@ -43,6 +43,7 @@
     "wpackagist-theme/spacious": "~1.4",
     "wpackagist-theme/digital":"~1.1",
     "wpackagist-theme/zerif-lite": "~1.8",
+    "catenare/paseo-theme":"dev-master",
     "wpackagist-plugin/wordpress-mu-domain-mapping":"~0.5",
     "wpackagist-plugin/buddypress": "~2.8.2",
     "wpackagist-plugin/bp-my-home":"~2",
@@ -57,7 +58,6 @@
     "wpackagist-plugin/debug-bar":">=0.9",
     "wpackagist-plugin/wordpress-importer": ">=0.6.3",
     "wpackagist-plugin/debug-bar-timber":"~0.3",
-    "catenare/paseo-theme":"dev-master",
     "upstatement/timber-starter-theme":"dev-master",
     "phpunit/phpunit": "~6.2"
   },

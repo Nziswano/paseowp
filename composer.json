@@ -54,7 +54,7 @@
     "wpackagist-plugin/log-deprecated-notices": ">=0.4",
     "wpackagist-plugin/debug-bar":">=0.9",
     "wpackagist-plugin/wordpress-importer": ">=0.6.3",
-    "wpackagist-plugin/gutenburg": ">=0.5",
+    "wpackagist-plugin/gutenberg": "~0.5",
     "phpunit/phpunit": "~6.2"
   },
   "repositories": [

@@ -98,3 +98,4 @@ wp-content/plugins/hello.php
 wordpress
 composer.lock
 public/
+.idea/

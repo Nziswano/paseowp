@@ -38,8 +38,8 @@
   },
   "require": {
     "php": "~7",
-    "johnpbloch/wordpress-core-installer": "~0.2",
-    "johnpbloch/wordpress-core": "~4.7",
+    "johnpbloch/wordpress-core-installer": "^1.0",
+    "johnpbloch/wordpress-core": "~4.8",
     "catenare/paseo-theme":"dev-master",
     "wpackagist-plugin/wordpress-mu-domain-mapping":"~0.5",
     "wpackagist-plugin/buddypress": "~2.8.2",

@@ -46,7 +46,11 @@
     "wpackagist-plugin/nginx-helper":"~1.9",
     "wpackagist-plugin/woocommerce":"~3.1",
     "wpackagist-theme/basicstore":"~1",
-    "wpackagist-theme/storefront":"~2"
+    "wpackagist-theme/storefront":"~2",
+    "paseo/paseo-wp-form-api": "dev-master",
+    "wpackagist-plugin/gutenberg": "~1.0",
+    "wpackagist-plugin/contact-form-7":"~4",
+    "wpackagist-plugin/flamingo":"~1"
   },
   "require-dev": {
     "wpackagist-plugin/theme-check": ">=20160523",
@@ -54,7 +58,6 @@
     "wpackagist-plugin/log-deprecated-notices": "~0.4",
     "wpackagist-plugin/debug-bar":"~0.9",
     "wpackagist-plugin/wordpress-importer": "~0.6.3",
-    "wpackagist-plugin/gutenberg": "~0.5",
     "wpackagist-plugin/bp-default-data":"~1",
     "wpackagist-plugin/demo-data-creator":"~1",
     "phpunit/phpunit": "~6"
@@ -63,6 +66,10 @@
     {
       "type": "composer",
       "url": "https://wpackagist.org"
+    },
+    {
+      "type": "vcs",
+      "url": "https://github.com/catenare/paseo-wp-form-api.git"
     }
   ]
 }

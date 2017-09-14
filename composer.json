@@ -50,7 +50,8 @@
     "paseo/paseo-wp-form-api": "dev-master",
     "wpackagist-plugin/gutenberg": "~1.0",
     "wpackagist-plugin/contact-form-7":"~4",
-    "wpackagist-plugin/flamingo":"~1"
+    "wpackagist-plugin/flamingo":"~1",
+    "wpackagist-plugin/jwt-authentication-for-wp-rest-api": "~1"
   },
   "require-dev": {
     "wpackagist-plugin/theme-check": ">=20160523",

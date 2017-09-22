@@ -49,9 +49,9 @@
     "wpackagist-theme/storefront":"~2",
     "paseo/paseo-wp-form-api": "dev-master",
     "wpackagist-plugin/gutenberg": "~1.0",
-    "wpackagist-plugin/contact-form-7":"~4",
     "wpackagist-plugin/flamingo":"~1",
-    "wpackagist-plugin/jwt-authentication-for-wp-rest-api": "~1"
+    "wpackagist-plugin/jwt-authentication-for-wp-rest-api": "~1",
+    "wpackagist-plugin/akismet":"~4"
   },
   "require-dev": {
     "wpackagist-plugin/theme-check": ">=20160523",
@@ -61,6 +61,7 @@
     "wpackagist-plugin/wordpress-importer": "~0.6.3",
     "wpackagist-plugin/bp-default-data":"~1",
     "wpackagist-plugin/demo-data-creator":"~1",
+    "wpackagist-plugin/query-monitor":"~2",
     "phpunit/phpunit": "~6"
   },
   "repositories": [

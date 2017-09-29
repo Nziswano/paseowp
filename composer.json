@@ -49,7 +49,6 @@
     "wpackagist-plugin/jetpack":"~5",
     "wpackagist-theme/basicstore":"~1",
     "wpackagist-theme/storefront":"~2",
-    "catenare/paseo-theme":"dev-master",
     "paseo/paseo-wp-form-api": "dev-master"
 
   },

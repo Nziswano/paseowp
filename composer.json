@@ -46,7 +46,6 @@
     "wpackagist-plugin/nginx-helper":"~1.9",
     "wpackagist-plugin/woocommerce":"~3.1",
     "wpackagist-plugin/wordpress-mu-domain-mapping":"~0.5",
-    "wpackagist-plugin/jetpack":"~5",
     "wpackagist-theme/basicstore":"~1",
     "wpackagist-theme/storefront":"~2",
     "paseo/paseo-wp-form-api": "dev-master"

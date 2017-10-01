@@ -7,4 +7,15 @@ Build a website for Paseo Baptist Church in Soweto, Johannesburg. Use the same w
 * Using mustache templating engine to process the theme.
   * Using it in creating the individual pages.
   * Easier to incorporate into overall scheme.
-  
+
+## Setting up with composer.json
+* Adding *humanmade/s3-uploads* via composer.
+  1. Add **"humanmade/s3-uploads":"@master"** in *composer.json*.
+  1. Add *humanmade* repository
+```json
+    "humanmade/s3-uploads":"dev-master",
+  {
+    "type": "vcs",
+    "url": "https://https://github.com/humanmade/S3-Uploads.git"
+  }
+```

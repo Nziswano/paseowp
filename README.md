@@ -16,6 +16,6 @@ Build a website for Paseo Baptist Church in Soweto, Johannesburg. Use the same w
     "humanmade/s3-uploads":"dev-master",
   {
     "type": "vcs",
-    "url": "https://https://github.com/humanmade/S3-Uploads.git"
+    "url": "https://github.com/humanmade/S3-Uploads.git"
   }
 ```

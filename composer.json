@@ -47,6 +47,7 @@
     "wpackagist-plugin/jwt-authentication-for-wp-rest-api": "~1",
     "wpackagist-plugin/event-espresso-decaf":"dev-trunk",
     "wpackagist-plugin/wordpress-mu-domain-mapping":"~0.5",
+    "wpackagist-plugin/wp-core-media-widgets":"dev-master",
     "humanmade/s3-uploads":"dev-master",
     "paseo/paseo-wp-form-api": "dev-master"
   },

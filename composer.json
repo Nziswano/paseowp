@@ -61,9 +61,9 @@
     "wpackagist-plugin/bp-default-data":"~1",
     "wpackagist-plugin/demo-data-creator":"~1",
     "wpackagist-plugin/wp-rest-api-log":"~1",
+    "wpackagist-plugin/timber-library":"~1",
     "wpackagist-plugin/debug": "~1",
     "wpackagist-plugin/debug-bar-console": "~0.3",
-
     "phpmd/phpmd" : "@stable",
     "phpunit/phpunit": "~6"
   },

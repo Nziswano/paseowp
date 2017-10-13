@@ -51,4 +51,6 @@ Build a website for Paseo Baptist Church in Soweto, Johannesburg. Use the same w
 /sbin/mkswap /var/swap.1
 /sbin/swapon /var/swap.1
 ```
+* Add Permanent swap [Add swap to Ubuntu](https://www.digitalocean.com/community/tutorials/how-to-add-swap-on-ubuntu-14-04)
+
     

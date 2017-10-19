@@ -58,7 +58,6 @@
     "wpackagist-plugin/bp-default-data":"~1",
     "wpackagist-plugin/demo-data-creator":"~1",
     "wpackagist-plugin/wp-rest-api-log":"~1",
-    "wpackagist-plugin/timber-library":"~1",
     "wpackagist-plugin/wp-php-console": "~1",
     "paseo/paseo-wp-form-api":"dev-master",
     "phpmd/phpmd" : "@stable",

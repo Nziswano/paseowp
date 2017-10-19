@@ -63,6 +63,7 @@
     "wpackagist-plugin/debug": "~1",
     "wpackagist-plugin/debug-bar-console": "~0.3",
     "wpackagist-plugin/wordpress-mu-domain-mapping":"~0.5",
+    "paseo/paseo-wp-theme":"dev-master",
     "paseo/paseo-wp-form-api":"dev-master",
     "phpmd/phpmd" : "@stable",
     "phpunit/phpunit": "~6"
@@ -71,6 +72,10 @@
     {
       "type": "composer",
       "url": "https://wpackagist.org"
+    },
+    {
+      "type": "vcs",
+      "url": "https://github.com/catenare/paseo-wp-theme.git"
     },
     {
       "type": "vcs",

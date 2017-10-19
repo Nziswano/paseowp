@@ -44,6 +44,7 @@
     "wpackagist-plugin/wp-core-media-widgets":"dev-master",
     "wpackagist-plugin/ninjafirewall":"~3",
     "wpackagist-plugin/jetpack":"~5",
+    "paseo/paseo-wp-form-api":"~1",
     "wpackagist-plugin/cloudinary-image-management-and-manipulation-in-the-cloud-cdn": "~1"
   },
   "require-dev": {
@@ -63,7 +64,6 @@
     "wpackagist-plugin/debug": "~1",
     "wpackagist-plugin/debug-bar-console": "~0.3",
     "wpackagist-plugin/wordpress-mu-domain-mapping":"~0.5",
-    "paseo/paseo-wp-form-api":"dev-master",
     "phpmd/phpmd" : "@stable",
     "phpunit/phpunit": "~6"
   },

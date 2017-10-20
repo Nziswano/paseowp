@@ -36,4 +36,6 @@ Build a website for Paseo Baptist Church in Soweto, Johannesburg. Use the same w
 /sbin/mkswap /var/swap.1
 /sbin/swapon /var/swap.1
 ```
+## Adding API Theme
+* Adding a public theme to show when hitting the front page of our api.
     

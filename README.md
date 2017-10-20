@@ -4,21 +4,6 @@ Build a website for Paseo Baptist Church in Soweto, Johannesburg. Use the same w
 
 * Using wordpress multisite for the project(s).
 * Foundation being used for creating the themes.
-* ~~Using mustache templating engine to process the theme.~~
-  * ~~Using it in creating the individual pages.~~
-  * ~~Easier to incorporate into overall scheme.~~
-
-## Setting up with composer.json
-* Adding *humanmade/s3-uploads* via composer.
-  1. Add **"humanmade/s3-uploads":"@master"** in *composer.json*.
-  1. Add *humanmade* repository
-```json
-    "humanmade/s3-uploads":"dev-master",
-  {
-    "type": "vcs",
-    "url": "https://github.com/humanmade/S3-Uploads.git"
-  }
-```
 
 ## Deploying the site
 ### Backend Code - Wordpress Code
@@ -52,5 +37,5 @@ Build a website for Paseo Baptist Church in Soweto, Johannesburg. Use the same w
 /sbin/swapon /var/swap.1
 ```
 * Add Permanent swap [Add swap to Ubuntu](https://www.digitalocean.com/community/tutorials/how-to-add-swap-on-ubuntu-14-04)
-
-    
+## Adding API Theme
+* Adding a public theme to show when hitting the front page of our api.

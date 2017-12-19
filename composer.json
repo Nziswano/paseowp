@@ -45,6 +45,7 @@
     "wpackagist-plugin/ninjafirewall":"~3",
     "wpackagist-plugin/jetpack":"~5",
     "wpackagist-plugin/cloudinary-image-management-and-manipulation-in-the-cloud-cdn": "~1",
+    "humanmade/s3-uploads":"dev-master",
     "paseo/api-theme":"dev-master",
     "paseo/paseo-wp-form-api":"dev-master"
   },
@@ -58,7 +59,6 @@
     "wpackagist-plugin/event-organiser":"~3",
     "wpackagist-plugin/camptix":"~1",
     "wpackagist-plugin/edit-flow":"~0.8",
-    "humanmade/s3-uploads":"dev-master",
     "wpackagist-plugin/wordpress-reset": "~1",
     "wpackagist-plugin/wordpress-importer": "~0.6.3",
     "wpackagist-plugin/bp-default-data":"~1",

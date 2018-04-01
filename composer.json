@@ -46,22 +46,13 @@
     "wpackagist-plugin/jetpack":"~5",
     "wpackagist-plugin/cloudinary-image-management-and-manipulation-in-the-cloud-cdn": "~1",
     "humanmade/s3-uploads":"dev-master",
-    "paseo/api-theme":"dev-master",
     "paseo/paseo-wp-form-api":"dev-master"
   },
   "require-dev": {
-    "wpackagist-plugin/buddypress": "~2",
-    "wpackagist-plugin/buddypress-activity-plus":"~1",
-    "wpackagist-plugin/woocommerce":"~3",
     "wpackagist-plugin/jwt-authentication-for-wp-rest-api": "~1",
-    "wpackagist-plugin/gutenberg":"~1",
-    "wpackagist-plugin/event-espresso-decaf":"dev-trunk",
-    "wpackagist-plugin/event-organiser":"~3",
-    "wpackagist-plugin/camptix":"~1",
-    "wpackagist-plugin/edit-flow":"~0.8",
+    "wpackagist-plugin/gutenberg":"~2",
     "wpackagist-plugin/wordpress-reset": "~1",
     "wpackagist-plugin/wordpress-importer": "~0.6.3",
-    "wpackagist-plugin/bp-default-data":"~1",
     "wpackagist-plugin/demo-data-creator":"~1",
     "wpackagist-plugin/wp-rest-api-log":"~1",
     "wpackagist-plugin/debug": "~1",
@@ -75,10 +66,6 @@
     {
       "type": "composer",
       "url": "https://wpackagist.org"
-    },
-    {
-      "type": "vcs",
-      "url": "https://github.com/catenare/paseo-api-theme.git"
     },
     {
       "type": "vcs",

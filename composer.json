@@ -45,7 +45,7 @@
     "wpackagist-plugin/ninjafirewall":"~3",
     "wpackagist-plugin/jetpack":"~5",
     "wpackagist-plugin/cloudinary-image-management-and-manipulation-in-the-cloud-cdn": "~1",
-    "humanmade/s3-uploads":"dev-master",
+    "humanmade/s3-uploads":"~2",
     "paseo/paseo-wp-form-api":"dev-master"
   },
   "require-dev": {

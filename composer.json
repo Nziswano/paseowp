@@ -1,5 +1,5 @@
 {
-  "name": "catenare/PaseoSite",
+  "name": "catenare/paseo-multi-site",
   "description": "Wordpress site for Paseo Baptist Church and Daycare center",
   "keywords": [
     "wordpress",
@@ -41,26 +41,11 @@
     "johnpbloch/wordpress-core-installer": ">=1",
     "johnpbloch/wordpress-core": ">=4",
     "wpackagist-plugin/akismet": ">=4",
-    "wpackagist-plugin/wp-core-media-widgets": "dev-master",
-    "wpackagist-plugin/ninjafirewall": ">=3",
     "wpackagist-plugin/jetpack": ">=5",
     "wpackagist-plugin/cloudinary-image-management-and-manipulation-in-the-cloud-cdn": ">=1",
     "humanmade/s3-uploads": ">=2",
-    "paseo/paseo-wp-form-api": "dev-master"
-  },
-  "require-dev": {
-    "wpackagist-plugin/jwt-authentication-for-wp-rest-api": ">=1",
-    "wpackagist-plugin/gutenberg": ">=2",
-    "wpackagist-plugin/wordpress-reset": ">=1",
-    "wpackagist-plugin/wordpress-importer": ">=0.6.3",
-    "wpackagist-plugin/demo-data-creator": ">=1",
-    "wpackagist-plugin/wp-rest-api-log": ">=1",
-    "wpackagist-plugin/debug": ">=1",
-    "wpackagist-plugin/debug-bar-console": ">=0.3",
-    "wpackagist-plugin/wordpress-mu-domain-mapping": ">=0.5",
-    "wpackagist-plugin/wp-php-console": ">=1",
-    "phpmd/phpmd": "@stable",
-    "phpunit/phpunit": ">=6"
+    "paseo/paseo-wp-form-api": "dev-master",
+    "wpackagist-plugin/woocommerce": "@stable"
   },
   "repositories": [
     {

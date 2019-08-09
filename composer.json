@@ -49,18 +49,18 @@
     "paseo/paseo-wp-form-api": "dev-master"
   },
   "require-dev": {
-    "wpackagist-plugin/jwt-authentication-for-wp-rest-api": "~1",
-    "wpackagist-plugin/gutenberg": "~2",
-    "wpackagist-plugin/wordpress-reset": "~1",
-    "wpackagist-plugin/wordpress-importer": "~0.6.3",
-    "wpackagist-plugin/demo-data-creator": "~1",
-    "wpackagist-plugin/wp-rest-api-log": "~1",
-    "wpackagist-plugin/debug": "~1",
-    "wpackagist-plugin/debug-bar-console": "~0.3",
-    "wpackagist-plugin/wordpress-mu-domain-mapping": "~0.5",
-    "wpackagist-plugin/wp-php-console": "~1",
+    "wpackagist-plugin/jwt-authentication-for-wp-rest-api": ">=1",
+    "wpackagist-plugin/gutenberg": ">=2",
+    "wpackagist-plugin/wordpress-reset": ">=1",
+    "wpackagist-plugin/wordpress-importer": ">=0.6.3",
+    "wpackagist-plugin/demo-data-creator": ">=1",
+    "wpackagist-plugin/wp-rest-api-log": ">=1",
+    "wpackagist-plugin/debug": ">=1",
+    "wpackagist-plugin/debug-bar-console": ">=0.3",
+    "wpackagist-plugin/wordpress-mu-domain-mapping": ">=0.5",
+    "wpackagist-plugin/wp-php-console": ">=1",
     "phpmd/phpmd": "@stable",
-    "phpunit/phpunit": "~6"
+    "phpunit/phpunit": ">=6"
   },
   "repositories": [
     {

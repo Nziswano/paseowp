@@ -45,7 +45,8 @@
     "wpackagist-plugin/cloudinary-image-management-and-manipulation-in-the-cloud-cdn": ">=1",
     "humanmade/s3-uploads": ">=2",
     "paseo/paseo-wp-form-api": "dev-master",
-    "wpackagist-plugin/woocommerce": "@stable"
+    "wpackagist-plugin/woocommerce": "@stable",
+    "wpackagist-plugin/woocommerce-admin": ">=0.16"
   },
   "repositories": [
     {

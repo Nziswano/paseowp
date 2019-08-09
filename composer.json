@@ -37,7 +37,7 @@
     }
   },
   "require": {
-    "php": ">=7",
+    "php": "~7",
     "johnpbloch/wordpress-core-installer": ">=1",
     "johnpbloch/wordpress-core": ">=4",
     "wpackagist-plugin/akismet": ">=",

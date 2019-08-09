@@ -38,14 +38,14 @@
   },
   "require": {
     "php": "~7",
-    "johnpbloch/wordpress-core-installer": ">=1",
-    "johnpbloch/wordpress-core": ">=4",
-    "wpackagist-plugin/akismet": ">=",
+    "johnpbloch/wordpress-core-installer": "~1",
+    "johnpbloch/wordpress-core": "~4",
+    "wpackagist-plugin/akismet": "~4",
     "wpackagist-plugin/wp-core-media-widgets": "dev-master",
-    "wpackagist-plugin/ninjafirewall": ">=3",
-    "wpackagist-plugin/jetpack": ">=5",
-    "wpackagist-plugin/cloudinary-image-management-and-manipulation-in-the-cloud-cdn": ">=1",
-    "humanmade/s3-uploads": ">=2",
+    "wpackagist-plugin/ninjafirewall": "~3",
+    "wpackagist-plugin/jetpack": "~5",
+    "wpackagist-plugin/cloudinary-image-management-and-manipulation-in-the-cloud-cdn": "~1",
+    "humanmade/s3-uploads": "~2",
     "paseo/paseo-wp-form-api": "dev-master"
   },
   "require-dev": {

@@ -21,6 +21,7 @@ services:
       - ./code:/code
     env_file:
       - site.env
+    command: 'bash /code/setup_composer.sh'
   db:
     image: mysql:8
     env_file:

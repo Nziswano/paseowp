@@ -28,10 +28,10 @@
   "extra": {
     "wordpress-install-dir": "wordpress",
     "installer-paths": {
-      "public/wp-content/plugins/{$name}": [
+      "wordpress/wp-content/plugins/{$name}": [
         "type:wordpress-plugin"
       ],
-      "public/wp-content/themes/{$name}": [
+      "wordpress/wp-content/themes/{$name}": [
         "type:wordpress-theme"
       ]
     }

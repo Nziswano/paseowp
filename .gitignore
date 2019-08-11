@@ -79,7 +79,9 @@ Temporary Items
 .apdisk
 ### WordPress template
 *.log
-wp-config.php
+# wp-config.php
+code/vendor/
+code/data/db/*
 wp-content/advanced-cache.php
 wp-content/backup-db/
 wp-content/backups/

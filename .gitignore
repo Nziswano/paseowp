@@ -81,7 +81,7 @@ Temporary Items
 *.log
 # wp-config.php
 code/vendor/
-code/data/db/*
+code/data/*
 wp-content/advanced-cache.php
 wp-content/backup-db/
 wp-content/backups/

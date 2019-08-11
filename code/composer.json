@@ -49,6 +49,18 @@
     "wpackagist-plugin/woocommerce-admin": ">=0.16",
     "wpackagist-plugin/wordpress-importer": ">=0.6"
   },
+  "require-dev": {
+    "wpackagist-plugin/wordpress-reset": ">=1",
+    "wpackagist-plugin/wordpress-importer": ">=0.6.3",
+    "wpackagist-plugin/demo-data-creator": ">=1",
+    "wpackagist-plugin/wp-rest-api-log": ">=1",
+    "wpackagist-plugin/debug": ">=1",
+    "wpackagist-plugin/debug-bar-console": ">=0.3",
+    "wpackagist-plugin/wordpress-mu-domain-mapping": ">=0.5",
+    "wpackagist-plugin/wp-php-console": ">=1",
+    "phpmd/phpmd": "@stable",
+    "phpunit/phpunit": ">=6"
+  },
   "repositories": [
     {
       "type": "composer",

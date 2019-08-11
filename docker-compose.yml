@@ -2,6 +2,8 @@ version: '3'
 services:
   web:
     image: nginx:1.17
+    env_file:
+      - site.env
     depends_on:
       - wordpress
     ports:
@@ -17,14 +19,11 @@ services:
     image: php-fpm
     volumes:
       - ./code:/code
-    environment:
-      WORDPRESS_DB_HOST: db:3306
-      WORDPRESS_DB_USER: wordpress
-      WORDPRESS_DB_PASSWORD: wordpress
-      WORDPRESS_DB_NAME: wordpress
+    env_file:
+      - site.env
   db:
     image: mysql:8
-    environment:
-      MYSQL_ROOT_PASSWORD: example
+    env_file:
+      - site.env
     volumes:
       - ./code/data/db:/var/lib/mysql

@@ -5,15 +5,14 @@ RUN set -ex; \
   savedAptMark="$(apt-mark showmanual)"; \
   \
   apt-get update; \
-  apt-get install -y --no-install-recommends \
-  libjpeg-dev \
-  libmagickwand-dev \
-  libpng-dev \
-  wget \
-  git \
-  unzip \
-  zip \
-  ; \
+  apt-get install -y --no-install-recommends\
+  libjpeg-dev\
+  libmagickwand-dev\
+  libpng-dev\
+  wget\
+  git\
+  unzip\
+  zip;\
   \
   docker-php-ext-configure gd --with-png-dir=/usr --with-jpeg-dir=/usr; \
   docker-php-ext-install -j "$(noproc)" \
@@ -35,10 +34,7 @@ RUN set -ex; \
   | xargs -r dpkg-query -S \
   | cut -d: -f1 \
   | sort -u \
-  | xargs -rt apt-mark manual; \
-  \
-  apt-get purge -y --auto-remove -o APT::AutoRemove::RecommendsImportant=false; \
-  rm -rf /var/lib/apt/lists/*
+  | xargs -rt apt-mark manual;
 
 # set recommended PHP.ini settings
 # see https://secure.php.net/manual/en/opcache.installation.php
@@ -64,12 +60,20 @@ RUN { \
   echo 'html_errors = Off'; \
   } > /usr/local/etc/php/conf.d/error-logging.ini
 
+RUN set -ex; \
+  php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"; \
+  php composer-setup.php --install-dir=/usr/local/bin --filename=composer --quiet;
+
+COPY composer.json /var/www/html
+COPY wp-config.php /var/www/html
+
+WORKDIR /var/www/html
 VOLUME /var/www/html
 
 RUN set -ex; \
-  php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"; \
-  php composer-setup.php --install-dir=/usr/local/bin --filename=composer --quiet
-COPY composer.json /var/www/html
-RUN set-ex; \
-  composer install;
+  composer install -vvv;
+
+RUN set -ex; \
+  apt-get purge -y --auto-remove -o APT::AutoRemove::RecommendsImportant=false; \
+  rm -rf /var/lib/apt/lists/*
 CMD ["php-fpm"]

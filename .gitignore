@@ -80,5 +80,5 @@ Temporary Items
 ### WordPress template
 *.log
 site.env
-dev/site/db/*
-dev/site/www/*
+site/db/*
+site/www/*

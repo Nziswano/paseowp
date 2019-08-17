@@ -60,22 +60,25 @@ RUN { \
   echo 'html_errors = Off'; \
   } > /usr/local/etc/php/conf.d/error-logging.ini
 
-WORKDIR /var/www/html
+WORKDIR /usr/src/html
 RUN set -ex; \
   php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"; \
   php composer-setup.php --install-dir=/usr/local/bin --filename=composer --quiet;
 
-COPY composer.json /var/www/html
-COPY wp-config.php /var/www/html
+COPY composer.json /usr/src/html
+COPY wp-config.php /usr/src/html
 
 RUN set -ex; \
   composer config -g github-oauth.github.com 4a17884a643475957b9511dc93dfe045d9031456;\
   composer install -vvv;\
-  chown -R www-data:www-data /var/www/html;
+  chown -R www-data:www-data /usr/src/html;
 
 VOLUME /var/www/html
 
 RUN set -ex; \
   apt-get purge -y --auto-remove -o APT::AutoRemove::RecommendsImportant=false; \
   rm -rf /var/lib/apt/lists/*
+
+COPY docker-entrypoint.sh /usr/local/bin/
+ENTRYPOINT ["docker-entrypoint.sh"]
 CMD ["php-fpm"]

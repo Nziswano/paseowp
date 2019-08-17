@@ -60,6 +60,7 @@ RUN { \
   echo 'html_errors = Off'; \
   } > /usr/local/etc/php/conf.d/error-logging.ini
 
+WORKDIR /var/www/html
 RUN set -ex; \
   php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"; \
   php composer-setup.php --install-dir=/usr/local/bin --filename=composer --quiet;
@@ -67,11 +68,12 @@ RUN set -ex; \
 COPY composer.json /var/www/html
 COPY wp-config.php /var/www/html
 
-WORKDIR /var/www/html
-VOLUME /var/www/html
-
 RUN set -ex; \
-  composer install -vvv;
+  composer config -g github-oauth.github.com 4a17884a643475957b9511dc93dfe045d9031456;\
+  composer install -vvv;\
+  chown -R www-data:www-data /var/www/html;
+
+VOLUME /var/www/html
 
 RUN set -ex; \
   apt-get purge -y --auto-remove -o APT::AutoRemove::RecommendsImportant=false; \

@@ -74,6 +74,7 @@ RUN set -ex; \
   chown -R www-data:www-data /usr/src/html;
 
 VOLUME /var/www/html
+WORKDIR /var/www/html
 
 RUN set -ex; \
   apt-get purge -y --auto-remove -o APT::AutoRemove::RecommendsImportant=false; \

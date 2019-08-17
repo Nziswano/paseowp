@@ -81,4 +81,4 @@ Temporary Items
 *.log
 site.env
 dev/site/db/*
-dev/site/wordpress/*
+dev/site/www/*

@@ -80,5 +80,6 @@ Temporary Items
 ### WordPress template
 *.log
 site.env
-site/db/*
-site/www/*
+site/db
+site/www
+site/sockets

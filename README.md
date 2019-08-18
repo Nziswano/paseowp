@@ -60,3 +60,8 @@ Build a website for Paseo Baptist Church in Soweto, Johannesburg. Use the same w
 - `docker image prune -a`
 - `docker container prune` - Remove stopped containers
 - `DOCKER_BUILDKIT=1 docker build .`
+  `define('DB_HOST', ':/var/lib/mysql/mysql.sock');`
+
+* Generate a salt `md5 -s "random salt again nonce_in my_kcy"`
+* user: 'sysadmin'
+* pass: "6l(rX9ipgF\*GYoD0wx"

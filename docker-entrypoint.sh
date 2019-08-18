@@ -16,7 +16,7 @@ set -euo pipefail
 		sourceTarArgs=(
 			--create
 			--file -
-			--directory /usr/src/html/wordpress
+			--directory /usr/src/html
 			--owner "$user" --group "$group"
 		)
 		targetTarArgs=(

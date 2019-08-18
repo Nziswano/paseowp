@@ -83,3 +83,4 @@ site.env
 site/db
 site/www
 site/sockets
+.env

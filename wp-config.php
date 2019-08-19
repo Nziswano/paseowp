@@ -46,19 +46,19 @@ define('DB_COLLATE', '');
  *
  * @since 2.6.0
  */
-define('AUTH_KEY',         '');
-define('SECURE_AUTH_KEY',  '');
-define('LOGGED_IN_KEY',    '');
-define('NONCE_KEY',        '');
-define('AUTH_SALT',        '');
-define('SECURE_AUTH_SALT', '');
-define('LOGGED_IN_SALT',   '');
-define('NONCE_SALT',       '');
-define('MY_KEY',      	   '');
+define('AUTH_KEY',         getenv('AUTH_KEY'));
+define('SECURE_AUTH_KEY',  getenv('SECURE_AUTH_KEY'));
+define('LOGGED_IN_KEY',    getenv('LOGGED_IN_KEY'));
+define('NONCE_KEY',        getenv('NONCE_KEY'));
+define('AUTH_SALT',        getenv('AUTH_SALT'));
+define('SECURE_AUTH_SALT', getenv('SECURE_AUTH_SALT'));
+define('LOGGED_IN_SALT',   getenv('LOGGED_IN_SALT'));
+define('NONCE_SALT',       getenv('NONCE_SALT'));
+define('MY_KEY',      	   getenv('MY_KEY'));
 /* Captcha Settings  */
-define('CAPTCHA_SITE_KEY',  '');
-define('CAPTCHA_SECRET',    '');
-define('CAPTCHA_URL',       'https://www.google.com/recaptcha/api/siteverify');
+// define('CAPTCHA_SITE_KEY',  '');
+// define('CAPTCHA_SECRET',    '');
+// define('CAPTCHA_URL',       'https://www.google.com/recaptcha/api/siteverify');
 /**#@-*/
 
 
@@ -68,7 +68,7 @@ define('CAPTCHA_URL',       'https://www.google.com/recaptcha/api/siteverify');
  * You can have multiple installations in one database if you give each
  * a unique prefix. Only numbers, letters, and underscores please!
  */
-$table_prefix  = 'church_';
+$table_prefix  = 'wp_';
 
 /**
  * For developers: WordPress debugging mode.
@@ -82,22 +82,22 @@ $table_prefix  = 'church_';
  *
  * @link https://codex.wordpress.org/Debugging_in_WordPress
  */
-define('WP_DEBUG', false);
+define('WP_DEBUG', getenv('WP_DEBUG'));
 /* Multisite */
 /* define('SUNRISE', 'on' ); */
-define('WP_ALLOW_MULTISITE', true);
-define('MULTISITE', true);
-define('SUBDOMAIN_INSTALL', false);
-define('DOMAIN_CURRENT_SITE', 'api.paseo.org.za');
-define('PATH_CURRENT_SITE', '/');
-define('SITE_ID_CURRENT_SITE', 1);
-define('BLOG_ID_CURRENT_SITE', 1);
+// define('WP_ALLOW_MULTISITE', true);
+// define('MULTISITE', true);
+// define('SUBDOMAIN_INSTALL', false);
+// define('DOMAIN_CURRENT_SITE', 'api.paseo.org.za');
+// define('PATH_CURRENT_SITE', '/');
+// define('SITE_ID_CURRENT_SITE', 1);
+// define('BLOG_ID_CURRENT_SITE', 1);
 
 // S3
-define( 'S3_UPLOADS_BUCKET', '');
-define( 'S3_UPLOADS_KEY', '');
-define( 'S3_UPLOADS_SECRET', '');
-define( 'S3_UPLOADS_REGION', 'eu-central-1');
+// define( 'S3_UPLOADS_BUCKET', '');
+// define( 'S3_UPLOADS_KEY', '');
+// define( 'S3_UPLOADS_SECRET', '');
+// define( 'S3_UPLOADS_REGION', 'eu-central-1');
 
 /* That's all, stop editing! Happy blogging. */
 

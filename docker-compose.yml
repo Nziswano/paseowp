@@ -35,13 +35,7 @@ services:
       LOGGED_IN_SALT: 1321b53ca4bc07e4d53fa198e59af3e7
       NONCE_SALT: 283a64ff44db59568cc77dba8196046b
       MY_KEY: 5931acc50be4d738a0f530dc4709d155
-      CAPTCHA_SITE_KEY:
-      CAPTCHA_SECRET:
-      WP_DEBUG: true
-      S3_UPLOADS_BUCKET:
-      S3_UPLOADS_KEY:
-      S3_UPLOADS_SECRET:
-      S3_UPLOADS_REGION: eu-central-1
+      WP_DEBUG: 'true'
   db:
     image: mysql:5
     environment:

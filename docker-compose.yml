@@ -1,4 +1,4 @@
-version: '3'
+version: "3"
 services:
   web:
     image: nginx:1.17
@@ -6,7 +6,7 @@ services:
       - wordpress
       - db
     ports:
-      - '7000:80'
+      - "7000:80"
     volumes:
       - ./site/www:/var/www/html
       - ./nginx.conf:/etc/nginx/conf.d/default.conf
@@ -14,7 +14,7 @@ services:
     build:
       context: .
       args:
-        github_token: ${GITHUB_TOKEN:?err}
+        github_token: "f4f730ba45be4cd009a8f7e5ea8abba1c3f6e4af"
     container_name: wordpress
     depends_on:
       - db
@@ -35,7 +35,7 @@ services:
       LOGGED_IN_SALT: 1321b53ca4bc07e4d53fa198e59af3e7
       NONCE_SALT: 283a64ff44db59568cc77dba8196046b
       MY_KEY: 5931acc50be4d738a0f530dc4709d155
-      WP_DEBUG: 'true'
+      WP_DEBUG: "true"
   db:
     image: mysql:5
     environment:

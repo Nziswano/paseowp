@@ -63,8 +63,3 @@ Build a website for Paseo Baptist Church in Soweto, Johannesburg. Use the same w
   `define('DB_HOST', ':/var/lib/mysql/mysql.sock');`
 
 * Generate a salt `md5 -s "random salt again nonce_in my_kcy"`
-* user: 'sysadmin'
-* pass: "6l(rX9ipgF\*GYoD0wx"
-
-f4f730ba45be4cd009a8f7e5ea8abba1c3f6e4af
-UUsh^f)9#g(2OCxTfo

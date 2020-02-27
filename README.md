@@ -67,6 +67,8 @@ Build a website for Paseo Baptist Church in Soweto, Johannesburg. Use the same w
   `define('DB_HOST', ':/var/lib/mysql/mysql.sock');`
 
 * Generate a salt `md5 -s "random salt again nonce_in my_kcy"`
+* Issue with s3 uploads. Needed to edit where the vendor file is found.
+  `require_once dirname( __FILE__ ) . '/../../../../vendor/autoload.php';`
 
 ## Deploying with docker on amazon fargate
 

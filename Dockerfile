@@ -70,7 +70,7 @@ COPY wp-config.php /usr/src/html
 
 RUN set -ex; \
   composer config -g github-oauth.github.com $github_token;\
-  composer install -vvv;\
+  composer install --no-dev -vvv;\
   chown -R www-data:www-data /usr/src/html;
 
 VOLUME /var/www/html

@@ -32,6 +32,10 @@ Build a website for Paseo Baptist Church in Soweto, Johannesburg. Use the same w
 1. Login and activate plugins.
 1. Test API access.
 
+## Github personal token
+
+- [Managing Composer Github Access](https://www.previousnext.com.au/blog/managing-composer-github-access-personal-access-tokens)
+
 ### Issues with deployment
 
 - Error _PHP Fatal error: Uncaught exception 'ErrorException' with message 'proc_open(): fork failed - Cannot allocate memory' in phar_
@@ -63,3 +67,25 @@ Build a website for Paseo Baptist Church in Soweto, Johannesburg. Use the same w
   `define('DB_HOST', ':/var/lib/mysql/mysql.sock');`
 
 * Generate a salt `md5 -s "random salt again nonce_in my_kcy"`
+
+## Deploying with docker on amazon fargate
+
+### Goals
+
+- Move everything to amazon
+- Expose the API for Wordpress via API Gateway
+
+### To Do
+
+- Setup a VPC for the internal/sails server and the fargate/ecs instance
+
+* LightSail Private IP Address: 172.26.15.42
+* Peering connection active to main vpc
+
+- Admin only accessible if logged into the VPC via vpn(?). Nice to have but not required.
+- Move website for paseo.org.za from Firebase to amazon - everything in one place.
+- Need to setup the small server to access the database via the VPC
+- Environment variables for
+  - S3
+  - Cloudinary
+  - Database settings - should only be accessible via the internal vpc

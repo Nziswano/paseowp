@@ -60,6 +60,7 @@ Build a website for Paseo Baptist Church in Soweto, Johannesburg. Use the same w
 * Add access token to docker image
   - [Tokens](https://github.com/settings/tokens)
   - `composer config -g github-oauth.github.com xxxxxxx;`
+    https://docs.microsoft.com/en-us/azure/devops/pipelines/tasks/build/docker?view=azure-devops
 
 - `docker image prune -a`
 - `docker container prune` - Remove stopped containers

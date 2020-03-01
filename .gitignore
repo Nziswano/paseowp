@@ -84,3 +84,4 @@ site/db
 site/www
 site/sockets
 .env
+.env.docker

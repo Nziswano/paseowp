@@ -1,0 +1,8 @@
+dev-docker-compose.yml
+docker-compose.yml
+README.md
+Azure.md
+.gitignore
+azure-pipelines.yml
+notes
+site

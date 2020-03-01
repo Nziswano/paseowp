@@ -18,7 +18,7 @@ Build a website for Paseo Baptist Church in Soweto, Johannesburg. Use the same w
    - `git tag -a v1.0 -m "Initial version of site launched"`
    - `git push origin --tags`
 1. Merge code to master.
-   - `git checkout mastger`
+   - `git checkout master`
    - `git merge dev`
    - `git push origin`
 1. Deploy backend code to server
@@ -78,7 +78,9 @@ Build a website for Paseo Baptist Church in Soweto, Johannesburg. Use the same w
 
 ## Building a docker image
 
-- `docker build --build-arg GITHUB_AUTH='{"github-oauth":{"github.com":"xxxxx"}}'
+- export COMPOSER_AUTH='{"github-oauth":{"github.com":"xxx"}}'
+
+* `DOCKER_BUILDKIT=1 docker build --build-arg GITHUB_AUTH='{"github-oauth":{"github.com":"xxxxx"}}'
 
 ## Deploying with docker on amazon fargate
 
@@ -106,3 +108,5 @@ Build a website for Paseo Baptist Church in Soweto, Johannesburg. Use the same w
 
 - user: martin.johan@nziswano.co.za
 - https://dev.azure.com/martinjohan/Paseo%20Wordpress%20Instance - devops instance
+
+* `DOCKER_BUILDKIT=1 docker build . --build-arg GITHUB_AUTH='{"github-oauth":{"github.com"a6e386af6938edd9d368aa8711edc57c328a0453"}}' -t paseo:wordpress`

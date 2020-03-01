@@ -59,7 +59,8 @@ Build a website for Paseo Baptist Church in Soweto, Johannesburg. Use the same w
 
 * Add access token to docker image
   - [Tokens](https://github.com/settings/tokens)
-  - `composer config -g github-oauth.github.com xxxxxxx;`
+  - **`composer config -g github-oauth.github.com xxxxxxx;`**
+  * export COMPOSER_AUTH='{"github-oauth":{"github.com":"xxxxx"}}'
 
 - `docker image prune -a`
 - `docker container prune` - Remove stopped containers
@@ -69,6 +70,10 @@ Build a website for Paseo Baptist Church in Soweto, Johannesburg. Use the same w
 * Generate a salt `md5 -s "random salt again nonce_in my_kcy"`
 * Issue with s3 uploads. Needed to edit where the vendor file is found.
   `require_once dirname( __FILE__ ) . '/../../../../vendor/autoload.php';`
+
+## Building a docker image
+
+- `docker build --build-arg GITHUB_AUTH='{"github-oauth":{"github.com":"xxxxx"}}'
 
 ## Deploying with docker on amazon fargate
 
@@ -91,3 +96,8 @@ Build a website for Paseo Baptist Church in Soweto, Johannesburg. Use the same w
   - S3
   - Cloudinary
   - Database settings - should only be accessible via the internal vpc
+
+## Looking into using Microsoft's services
+
+- user: martin.johan@nziswano.co.za
+- https://dev.azure.com/martinjohan/Paseo%20Wordpress%20Instance - devops instance

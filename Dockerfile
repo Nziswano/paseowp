@@ -1,5 +1,6 @@
 FROM php:7.2-fpm
-ARG github_token
+ARG GITHUB_AUTH
+ENV COMPOSER_AUTH=$GITHUB_AUTH
 RUN set -ex; \
   \
   savedAptMark="$(apt-mark showmanual)"; \
@@ -69,7 +70,6 @@ COPY composer.json /usr/src/html
 COPY wp-config.php /usr/src/html
 
 RUN set -ex; \
-  composer config -g github-oauth.github.com $github_token;\
   composer install --no-dev -vvv;\
   chown -R www-data:www-data /usr/src/html;
 

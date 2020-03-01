@@ -109,4 +109,4 @@ Build a website for Paseo Baptist Church in Soweto, Johannesburg. Use the same w
 - user: martin.johan@nziswano.co.za
 - https://dev.azure.com/martinjohan/Paseo%20Wordpress%20Instance - devops instance
 
-* `DOCKER_BUILDKIT=1 docker build . --build-arg GITHUB_AUTH='{"github-oauth":{"github.com"a6e386af6938edd9d368aa8711edc57c328a0453"}}' -t paseo:wordpress`
+* `DOCKER_BUILDKIT=1 docker build . --build-arg GITHUB_AUTH='{"github-oauth":{"github.com": "xxx"}}' -t paseo:wordpress`

@@ -22,7 +22,7 @@ services:
     volumes:
       - ./site/www:/var/www/html
       - ./site/sockets:/var/run/mysqld
-    env_file: .env
+    env_file: .env.docker
     environment:
       WORDPRESS_DB_HOST: ${WORDPRESS_DB_HOST}
       WORDPRESS_DB_USER: ${WORDPRESS_DB_USER}
@@ -38,13 +38,3 @@ services:
       NONCE_SALT: ${NONCE_SALT}
       MY_KEY: ${MY_KEY}
       WP_DEBUG: ${WP_DEBUG}
-  db:
-    image: mysql:5
-    environment:
-      MYSQL_ROOT_PASSWORD: example
-      MYSQL_DATABASE: wordpress
-      MYSQL_USER: wordpress
-      MYSQL_PASSWORD: wordpress
-    volumes:
-      - ./site/db:/var/lib/mysql
-      - ./site/sockets:/var/run/mysqld

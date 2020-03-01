@@ -62,6 +62,8 @@ Build a website for Paseo Baptist Church in Soweto, Johannesburg. Use the same w
   * [Managing Composer GitHub Personal Access Tokens](https://www.previousnext.com.au/blog/managing-composer-github-access-personal-access-tokens)
   - **`composer config -g github-oauth.github.com xxxxxxx;`**
   * export COMPOSER_AUTH='{"github-oauth":{"github.com":"xxxxx"}}'
+* Microsoft Pipeline
+  - [Docker Tasks](https://docs.microsoft.com/en-us/azure/devops/pipelines/tasks/build/docker?view=azure-devops)
 
 - `docker image prune -a`
 - `docker container prune` - Remove stopped containers

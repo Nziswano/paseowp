@@ -1,4 +1,6 @@
-# Paseo Baptist Church, Preschool and the Martins Web Site
+# Paseo MultiSite Wordpress Image
+
+[![Build Status](https://dev.azure.com/martinjohan/Paseo%20Wordpress%20Instance/_apis/build/status/catenare.paseowp?branchName=master)](https://dev.azure.com/martinjohan/Paseo%20Wordpress%20Instance/_build/latest?definitionId=1&branchName=master)
 
 ## Overview
 

@@ -42,9 +42,10 @@
     "wpackagist-plugin/akismet": ">=4",
     "wpackagist-plugin/jetpack": ">=5",
     "wpackagist-plugin/cloudinary-image-management-and-manipulation-in-the-cloud-cdn": ">=1",
-    "catenare/s3-uploads": ">=2",
+    "humanmade/s3-uploads": ">=2",
     "paseo/paseo-wp-form-api": "dev-master",
-    "wpackagist-plugin/woocommerce": ">=4",
+    "wpackagist-plugin/jwt-authentication-for-wp-rest-api": ">=1",
+    "wpackagist-plugin/woocommerce": "@stable",
     "wpackagist-plugin/woocommerce-admin": ">=0.26",
     "wpackagist-plugin/wp-php-console": ">=1"
   },

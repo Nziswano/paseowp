@@ -9,6 +9,10 @@ Build a website for Paseo Baptist Church in Soweto, Johannesburg. Use the same w
 - Using wordpress multisite for the project(s).
 - Foundation being used for creating the themes.
 
+* Demo Details
+* username: dockeradmin
+* password: 0SZqhXauHD\$ZDEssg5
+
 ## Deploying the site
 
 ### Backend Code - Wordpress Code

@@ -10,8 +10,11 @@ Build a website for Paseo Baptist Church in Soweto, Johannesburg. Use the same w
 - Foundation being used for creating the themes.
 
 * Demo Details
-* username: dockeradmin
-* password: 0SZqhXauHD\$ZDEssg5
+  - username: dockeradmin
+  - password: 0SZqhXauHD\$ZDEssg5
+* WooCommerce API Keys
+  - consumer key: ck_5e9f4921efc5325141fe00a1d17213bba6740f42
+  - consumer secret: cs_11cb8dcbc3d64544acb53f158177cf0ed8585cca
 
 ## Deploying the site
 

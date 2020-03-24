@@ -21,3 +21,4 @@ A multi-site wordpress image used by multiple sites.
     * [Tokens](https://github.com/settings/tokens
     *  [Managing Composer Github Access](https://www.previousnext.com.au/blog/managing-composer-github-access-personal-access-tokens)
     * `export COMPOSER_AUTH='{"github-oauth":{"github.com":"xxxxx"}}`
+* Azure Devops Notes

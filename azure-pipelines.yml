@@ -32,5 +32,7 @@ stages:
           - task: Docker@2
             inputs:
               containerRegistry: 'nziswano docker registry'
-              repository: 'MultiWordpress'
+              repository: $(imageName)
               command: 'push'
+              tags: |
+                $(tag)

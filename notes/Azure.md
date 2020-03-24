@@ -18,6 +18,8 @@
 * Create a new devops organization
   * Under settings, create a **Service connections**
   * Service name is nziswano docker registry
+* Under devops use My Azure DevOps Orgnizations
+  *
 
   $(GITHUB_AUTH)
 $(image_name)

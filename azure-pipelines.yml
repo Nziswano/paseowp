@@ -32,7 +32,7 @@ stages:
           - task: Docker@2
             inputs:
               containerRegistry: 'nziswano docker registry'
-              repository: $(imageName)
+              repository: $(image_name)
               command: 'push'
               tags: |
                 $(tag)

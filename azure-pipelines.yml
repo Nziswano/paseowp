@@ -22,14 +22,17 @@ stages:
           vmImage: "ubuntu-latest"
         steps:
           - task: Docker@2
-            displayName: Build an image
+            displayName: Build
             inputs:
               args: GITHUB_AUTH=$(GITHUB_AUTH)
               command: build
+              containerRegistry: 'nziswano docker registry'
+              repository: $(image_name)
               dockerfile: "$(Build.SourcesDirectory)/Dockerfile"
               tags: |
                 $(tag)
           - task: Docker@2
+            displayName: Push
             inputs:
               containerRegistry: 'nziswano docker registry'
               repository: $(image_name)

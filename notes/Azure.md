@@ -19,7 +19,10 @@
   * Under settings, create a **Service connections**
   * Service name is nziswano docker registry
 * Under devops use My Azure DevOps Orgnizations
-  *
 
+* Seperate build and push operations
+  https://stackoverflow.com/questions/60287354/i-am-using-azure-devops-to-build-and-push-my-docker-image-how-can-i-pass-argume
+
+  Variables
   $(GITHUB_AUTH)
-$(image_name)
+  $(image_name)

@@ -6,3 +6,6 @@ Azure.md
 azure-pipelines.yml
 notes
 site
+.env
+.env.docker
+TODO.md

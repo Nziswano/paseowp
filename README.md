@@ -1,7 +1,10 @@
+
 # Multi-site Wordpress Docker Image
 A multi-site wordpress image used by multiple sites.
 * Access wordpress instance via REST API
 * Uses `composer.json` to manage the wordpress code.
+## Lightsail Server
+* `ssh -i LightsailDefaultKey-eu-central-1.pem ubuntu@api.paseo.org.za`
 ## Wordpress Settings
 * `define('DB_HOST', ':/var/lib/mysql/mysql.sock');`
 * Generate a salt `md5 -s "random salt again nonce_in my_kcy"`
@@ -22,3 +25,9 @@ A multi-site wordpress image used by multiple sites.
     *  [Managing Composer Github Access](https://www.previousnext.com.au/blog/managing-composer-github-access-personal-access-tokens)
     * `export COMPOSER_AUTH='{"github-oauth":{"github.com":"xxxxx"}}`
 * Azure Devops Notes
+report.status = Reporting::Report::statuses[:generated];
+
+## Build Docker file
+* Build with argument - We pass in the github auth token currently stored in **.env** file
+* `export DOCKER_BUILDKIT=1`
+* `docker build --build-arg GITHUB_AUTH -t paseo:wordpress .`

@@ -1,6 +1,11 @@
 FROM php:7.2-fpm
 ARG GITHUB_AUTH
 ENV COMPOSER_AUTH=$GITHUB_AUTH
+
+RUN mkdir /nginx
+VOLUME /nginx
+COPY nginx.conf  /nginx/default.conf
+
 RUN set -ex; \
   \
   savedAptMark="$(apt-mark showmanual)"; \

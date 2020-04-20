@@ -3,7 +3,6 @@ ARG GITHUB_AUTH
 ENV COMPOSER_AUTH=$GITHUB_AUTH
 
 RUN mkdir /nginx
-VOLUME /nginx
 COPY nginx.conf  /nginx/default.conf
 
 RUN set -ex; \

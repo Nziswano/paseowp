@@ -36,3 +36,6 @@ docker push {ecr}.dkr.ecr.eu-central-1.amazonaws.com/paseo:wordpress
     * `export COMPOSER_AUTH='{"github-oauth":{"github.com":"xxxxx"}}`
 * Azure Devops Notes
 report.status = Reporting::Report::statuses[:generated];
+
+## Build with Github CI and send to aws registry
+* 

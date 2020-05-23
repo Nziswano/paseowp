@@ -1,24 +1,26 @@
 version: "3"
 services:
   web:
-    image: nginx:1.17
+    image: nziswano:nginx
+    build:
+      context: .
+      dockerfile: Dockerfile-nginx
     depends_on:
       - wordpress
     ports:
       - "7000:80"
     volumes:
       - wordpress:/var/www/html
-      - nginx:/etc/nginx/conf.d
   wordpress:
-    image: paseo:wordpress
+    image: nziswano:wordpress
     build:
       context: .
+      dockerfile: Dockerfile-wordpress
       args:
         GITHUB_AUTH: ${COMPOSER_AUTH}
     container_name: wordpress
     volumes:
       - wordpress:/var/www/html
-      - nginx:/nginx
     environment:
       - WORDPRESS_DB_HOST=${WORDPRESS_DB_HOST}
       - WORDPRESS_DB_USER=${WORDPRESS_DB_USER}
@@ -36,4 +38,3 @@ services:
       - WP_DEBUG=${WP_DEBUG}
 volumes:
   wordpress:
-      nginx:

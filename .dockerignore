@@ -13,3 +13,6 @@ fargate/
 aws_cdk/
 .github
 node_modules
+aws_cdk
+*.md
+*.yml

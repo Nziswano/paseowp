@@ -22,6 +22,10 @@ docker run --env-file .env --name wordpressdb  --network paseowp_default -v "$PW
 - Connect to server at `http://localhost:7000`
 - Should see the Wordpress Admin install page
 
+## Building and deploying images using Github
+
+- [Github AWS Actions](https://github.com/aws-actions)
+
 ## AWS Services
 
 - Using the AWS CDK
@@ -31,11 +35,20 @@ docker run --env-file .env --name wordpressdb  --network paseowp_default -v "$PW
 
 * Set _env_ in _bin/aws_cdk.ts_.
 
+https://docs.aws.amazon.com/cdk/api/latest/
+
+Paramter Store - AWS Systems Manager - Parameter Store
+
+- Be sure to run `npm run watch`
+
 ### AWS ECS Registry Service
 
 - Setup Registry Service
 
 ### AWS Fargate Cluster
+
+- cluster
+- registry
 
 ### AWS Task Definition
 

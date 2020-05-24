@@ -25,10 +25,7 @@
 
 name: Deploy to Amazon ECR
 
-on:
-  push:
-    branches:
-      - deploy
+on: [push]
 
 jobs:
   deploy:
@@ -54,18 +51,21 @@ jobs:
         id: build-image
         env:
           ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
+          ECR_REPOSITORY: nziswano
           WORDPRESS_DOCKER: Dockerfile-wordpress
           WORDPRESS_REPO: nziswano-wordpress
           NGINX_DOCKER: Dockerfile-nginx
           NGINX_REPO: nziswano-nginx
-          IMAGE_TAG: ${{ github.sha }}
-          IMAGE_TAG_LATEST: latest
         run: |
           # Build a docker container and
           # push it to ECR so that it can
           # be deployed to ECS.
-          docker build -f $WORDPRESS_DOCKER -t $ECR_REGISTRY/$WORDPRESS_REPO:$IMAGE_TAG -t $ECR_REGISTRY/$WORDPRESS_REPO:$IMAGE_TAG_LATEST .
-          docker push $ECR_REGISTRY/$WORDPRESS_REPO:$IMAGE_TAG
-          docker build -f $NGINX_DOCKER -t $ECR_REGISTRY/$NGINX_REPO:$IMAGE_TAG -t $ECR_REGISTRY/$NGINX_REPO:$IMAGE_TAG_LATEST .
-          docker push $ECR_REGISTRY/$NGINX_REPO:$IMAGE_TAG
-          echo "::set-output name=image::$ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG"
+          docker build -f $WORDPRESS_DOCKER -t $ECR_REGISTRY/$ECR_REPOSITORY:wordpress_latest .
+          docker push $ECR_REGISTRY/$ECR_REPOSITORY:wordpress_latest
+          docker build -f $NGINX_DOCKER -t $ECR_REGISTRY/$ECR_REPOSITORY:nginx_latest .
+          docker push $ECR_REGISTRY/$ECR_REPOSITORY:nginx_latest
+          echo "::set-output name=image::$ECR_REGISTRY/$ECR_REPOSITORY:wordpress_latest"
+
+      - name: Logout of Amazon ECR
+        if: always()
+        run: docker logout ${{ steps.login-ecr.outputs.registry }}

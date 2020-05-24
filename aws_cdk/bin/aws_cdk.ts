@@ -2,6 +2,7 @@
 import "source-map-support/register";
 import * as cdk from "@aws-cdk/core";
 import { AwsCdkStack } from "../lib/aws_cdk-stack";
+import * as dotenv from "dotenv";
 
 const current_config = {
   region: "eu-central-1",

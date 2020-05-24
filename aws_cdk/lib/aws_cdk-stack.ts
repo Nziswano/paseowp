@@ -31,5 +31,69 @@ export class AwsCdkStack extends cdk.Stack {
 
     // const api = new apigateway.RestApi(this, "wordpress-api");
     new cdk.CfnOutput(this, "registry", { value: repository.repositoryUri });
+
+    // Task Definition
+
+    // create a task definition with CloudWatch Logs
+    const logging = new ecs.AwsLogDriver({
+      streamPrefix: "myapp",
+    });
+
+    const taskDefinition = new ecs.FargateTaskDefinition(
+      this,
+      "wordpress_fargate",
+      {
+        family: "nziswano_fargate",
+        volumes: [{ name: "wordpress" }],
+      }
+    );
+
+    const wordpressContainerProps = {
+      image: ecs.ContainerImage.fromEcrRepository(
+        repository,
+        "wordpress_latest"
+      ),
+      taskDefinition: taskDefinition,
+      mountPoints: [
+        {
+          readOnly: false,
+          containerPath: "/var/www/html",
+          sourcVolume: "wordpress",
+        },
+      ],
+      environment: {
+        AUTH_KEY: process.env.AUTH_KEY,
+        AUTH_SALT: process.env.AUTH_SALT,
+        LOGGED_IN_KEY: process.env.LOGGED_IN_KEY,
+        LOGGED_IN_SALT: process.env.LOGGED_IN_SALT,
+        MY_KEY: process.env.MY_KEY,
+        NONCE_KEY: process.env.NONCE_KEY,
+        NONCE_SALT: process.env.NONCE_SALT,
+        SECURE_AUTH_KEY: process.env.SECURE_AUTH_KEY,
+        SECURE_AUTH_SALT: process.env.SECURE_AUTH_SALT,
+        WORDPRESS_DB_HOST: process.env.WORDPRESS_DB_HOST,
+        WORDPRESS_DB_NAME: process.env.WORDPRESS_DB_NAME,
+        WORDPRESS_DB_PASSWORD: process.env.WORDPRESS_DB_PASSWORD,
+        WORDPRESS_DB_USER: process.env.WORDPRESS_DB_USER,
+        WP_DEBUG: process.env.WP_DEBUG,
+      },
+      logging: logging,
+    };
+
+    const nginxContainerProps = {
+      image: ecs.ContainerImage.fromEcrRepository(repository, "nginx_latest"),
+      taskDefinition: taskDefinition,
+      mountPoints: [
+        {
+          readOnly: true,
+          containerPath: "/var/www/html",
+          sourcVolume: "wordpress",
+        },
+      ],
+      logging: logging,
+    };
+
+    taskDefinition.addContainer("wordpress", wordpressContainerProps);
+    taskDefinition.addContainer("nginx", nginxContainerProps);
   }
 }

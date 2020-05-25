@@ -22,11 +22,7 @@ docker run --env-file .env --name wordpressdb  --network paseowp_default -v "$PW
 - Connect to server at `http://localhost:7000`
 - Should see the Wordpress Admin install page
 
-## Building and deploying images using Github
-
-- [Github AWS Actions](https://github.com/aws-actions)
-
-## AWS Services
+## AWS Services - This creates the complete infrastructure for running this service.
 
 ### Aws System Manager Parameter Store - SSM
 
@@ -55,3 +51,13 @@ new AwsCdkStack(app, "AwsCdkStack", {
 ```
 
 - Configuration is done in **lib/aws_cdk-stack.ts**
+
+* Update the _aws_cdk-stack.ts_ file
+* `$ cdk deploy` - deploys all the latest changes.
+
+## Building and deploying images using Github
+
+- Will automatically update the ecs service.
+
+* [Github AWS Actions](https://github.com/aws-actions)
+  - [Render Task Definition](https://github.com/aws-actions/amazon-ecs-render-task-definition)

@@ -8,6 +8,16 @@ export class AwsCdkStack extends cdk.Stack {
   constructor(scope: cdk.Construct, id: string, props?: cdk.StackProps) {
     super(scope, id, props);
 
+    const vpc = ec2.Vpc.fromLookup(this, "DefaultVpc", {
+      isDefault: true,
+    });
+
+    const securityGroup = ec2.SecurityGroup.fromSecurityGroupId(
+      this,
+      "DefaultSecurityGroup",
+      "sg-4e7a5e27"
+    );
+
     const repository = new ecr.Repository(this, "nziswano", {
       repositoryName: "nziswano",
     });
@@ -16,10 +26,6 @@ export class AwsCdkStack extends cdk.Stack {
       maxImageCount: 1,
     });
     repository.addLifecycleRule({ tagPrefixList: ["nginx"], maxImageCount: 1 });
-
-    const vpc = ec2.Vpc.fromLookup(this, "DefaultVpc", {
-      isDefault: true,
-    });
 
     const cluster = new ecs.Cluster(this, "NziswanoCluster", {
       vpc: vpc,
@@ -127,11 +133,19 @@ export class AwsCdkStack extends cdk.Stack {
       sourceVolume: "wordpress",
     });
 
+    nginxContainer.addPortMappings({
+      hostPort: 80,
+      protocol: "tcp",
+      containerPort: 80,
+    });
+
     const fargateService = new ecs.FargateService(this, "Fargate Service", {
       cluster: cluster,
       taskDefinition: taskDefinition,
       assignPublicIp: true,
       serviceName: "nziswano-wordpress",
+      securityGroup: securityGroup,
+      desiredCount: 0,
     });
   }
 }

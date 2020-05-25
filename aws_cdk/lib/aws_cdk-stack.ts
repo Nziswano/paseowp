@@ -1,10 +1,8 @@
 import * as cdk from "@aws-cdk/core";
 import * as ec2 from "@aws-cdk/aws-ec2";
 import * as ecs from "@aws-cdk/aws-ecs";
-import * as dotenv from "dotenv";
 import * as ecr from "@aws-cdk/aws-ecr";
-// import * as ssm from "@aws-cdk/aws-ssm";
-import * as apigateway from "@aws-cdk/aws-apigateway";
+import * as ssm from "@aws-cdk/aws-ssm";
 
 export class AwsCdkStack extends cdk.Stack {
   constructor(scope: cdk.Construct, id: string, props?: cdk.StackProps) {
@@ -56,27 +54,51 @@ export class AwsCdkStack extends cdk.Stack {
       ),
       taskDefinition: taskDefinition,
       environment: {
-        AUTH_KEY: process.env.AUTH_KEY,
-        AUTH_SALT: process.env.AUTH_SALT,
-        LOGGED_IN_KEY: process.env.LOGGED_IN_KEY,
-        LOGGED_IN_SALT: process.env.LOGGED_IN_SALT,
-        MY_KEY: process.env.MY_KEY,
-        NONCE_KEY: process.env.NONCE_KEY,
-        NONCE_SALT: process.env.NONCE_SALT,
-        SECURE_AUTH_KEY: process.env.SECURE_AUTH_KEY,
-        SECURE_AUTH_SALT: process.env.SECURE_AUTH_SALT,
-        WORDPRESS_DB_HOST: "172.26.15.42",
-        WORDPRESS_DB_NAME: process.env.WORDPRESS_DB_NAME,
-        WORDPRESS_DB_PASSWORD: process.env.WORDPRESS_DB_PASSWORD,
-        WORDPRESS_DB_USER: process.env.WORDPRESS_DB_USER,
-        WP_DEBUG: process.env.WP_DEBUG,
+        AUTH_KEY: ssm.StringParameter.valueFromLookup(this, "AUTH_KEY"),
+        AUTH_SALT: ssm.StringParameter.valueFromLookup(this, "AUTH_SALT"),
+        LOGGED_IN_KEY: ssm.StringParameter.valueFromLookup(
+          this,
+          "LOGGED_IN_KEY"
+        ),
+        LOGGED_IN_SALT: ssm.StringParameter.valueFromLookup(
+          this,
+          "LOGGED_IN_SALT"
+        ),
+        MY_KEY: ssm.StringParameter.valueFromLookup(this, "MY_KEY"),
+        NONCE_KEY: ssm.StringParameter.valueFromLookup(this, "NONCE_KEY"),
+        NONCE_SALT: ssm.StringParameter.valueFromLookup(this, "NONCE_SALT"),
+        SECURE_AUTH_KEY: ssm.StringParameter.valueFromLookup(
+          this,
+          "SECURE_AUTH_KEY"
+        ),
+        SECURE_AUTH_SALT: ssm.StringParameter.valueFromLookup(
+          this,
+          "SECURE_AUTH_SALT"
+        ),
+        WORDPRESS_DB_HOST: ssm.StringParameter.valueFromLookup(
+          this,
+          "WORDPRESS_DB_HOST"
+        ),
+        WORDPRESS_DB_NAME: ssm.StringParameter.valueFromLookup(
+          this,
+          "WORDPRESS_DB_NAME"
+        ),
+        WORDPRESS_DB_PASSWORD: ssm.StringParameter.valueFromLookup(
+          this,
+          "WORDPRESS_DB_PASSWORD"
+        ),
+        WORDPRESS_DB_USER: ssm.StringParameter.valueFromLookup(
+          this,
+          "WORDPRESS_DB_USER"
+        ),
+        WP_DEBUG: ssm.StringParameter.valueFromLookup(this, "WP_DEBUG"),
       },
       logging: logging,
     };
 
     const wordpressContainer = new ecs.ContainerDefinition(
       this,
-      "wordpress",
+      "wordpress_container",
       wordpressContainerProps
     );
 
@@ -95,7 +117,7 @@ export class AwsCdkStack extends cdk.Stack {
 
     const nginxContainer = new ecs.ContainerDefinition(
       this,
-      "nginx",
+      "nginx_container",
       nginxContainerProps
     );
 
@@ -103,6 +125,13 @@ export class AwsCdkStack extends cdk.Stack {
       readOnly: true,
       containerPath: "/var/www/html",
       sourceVolume: "wordpress",
+    });
+
+    const fargateService = new ecs.FargateService(this, "Fargate Service", {
+      cluster: cluster,
+      taskDefinition: taskDefinition,
+      assignPublicIp: true,
+      serviceName: "nziswano-wordpress",
     });
   }
 }

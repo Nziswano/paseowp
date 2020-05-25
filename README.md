@@ -30,34 +30,28 @@ docker run --env-file .env --name wordpressdb  --network paseowp_default -v "$PW
 
 ### Aws System Manager Parameter Store - SSM
 
-```sh
-$ aws ssm put-parameter --name "WORDPRESS_DB_HOST" --type "String" --value "172.26.15.42"
+- Using `update_ssm.sh` to update **.env** variables on ssm manager.
+
+* `./update_ssm.sh .env` - **.env** is the name for the file with the environmental variables.
+
+### Using the AWS CDK
+
+- [CDK API Docs](https://docs.aws.amazon.com/cdk/api/latest/)
+
+* Using TypeScript, start watch command. Need this to compile TypeScript into JavaScript.
+* `$ npm run watch`
+* Set _env_ in _bin/aws_cdk.ts_.
+
+```json
+const current_config = {
+  region: "eu-central-1",
+  account: "338196870821",
+};
+
+const app = new cdk.App();
+new AwsCdkStack(app, "AwsCdkStack", {
+  env: current_config,
+});
 ```
 
-- Using the command line client.
-
-* Using the AWS CDK
-
-- Using TypeScript, start watch command.
-  `npm run watch`
-
-- Set _env_ in _bin/aws_cdk.ts_.
-
-https://docs.aws.amazon.com/cdk/api/latest/
-
-- Be sure to run `npm run watch`
-
-### AWS ECS Registry Service
-
-- Setup Registry Service
-
-### AWS Fargate Cluster
-
-- cluster
-- registry
-
-### AWS Task Definition
-
-### Api Gateway
-
-### AWS RDS Service
+- Configuration is done in **lib/aws_cdk-stack.ts**

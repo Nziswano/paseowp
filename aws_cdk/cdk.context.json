@@ -29,5 +29,19 @@
         ]
       }
     ]
-  }
+  },
+  "ssm:account=338196870821:parameterName=AUTH_KEY:region=eu-central-1": "c3def60d6b870cb9ddfd5a37e5cc4cb2",
+  "ssm:account=338196870821:parameterName=AUTH_SALT:region=eu-central-1": "22b938073218c4d8f0f10a3d36d352b8",
+  "ssm:account=338196870821:parameterName=LOGGED_IN_KEY:region=eu-central-1": "bcedc450f8481e89b1445069acdc3dd9",
+  "ssm:account=338196870821:parameterName=LOGGED_IN_SALT:region=eu-central-1": "1321b53ca4bc07e4d53fa198e59af3e7",
+  "ssm:account=338196870821:parameterName=MY_KEY:region=eu-central-1": "5931acc50be4d738a0f530dc4709d155",
+  "ssm:account=338196870821:parameterName=NONCE_KEY:region=eu-central-1": "cb584e44c43ed6bd0bc2d9c7e242837d",
+  "ssm:account=338196870821:parameterName=NONCE_SALT:region=eu-central-1": "283a64ff44db59568cc77dba8196046b",
+  "ssm:account=338196870821:parameterName=SECURE_AUTH_KEY:region=eu-central-1": "a8ee42c175b2b516d1f81ff992db030b",
+  "ssm:account=338196870821:parameterName=SECURE_AUTH_SALT:region=eu-central-1": "4e3baa46296d1358ea19f237ee1a5d19",
+  "ssm:account=338196870821:parameterName=WORDPRESS_DB_HOST:region=eu-central-1": "172.26.15.42",
+  "ssm:account=338196870821:parameterName=WORDPRESS_DB_NAME:region=eu-central-1": "wordpress",
+  "ssm:account=338196870821:parameterName=WORDPRESS_DB_PASSWORD:region=eu-central-1": "wordpress",
+  "ssm:account=338196870821:parameterName=WORDPRESS_DB_USER:region=eu-central-1": "wordpress",
+  "ssm:account=338196870821:parameterName=WP_DEBUG:region=eu-central-1": "true"
 }

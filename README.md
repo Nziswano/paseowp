@@ -28,16 +28,22 @@ docker run --env-file .env --name wordpressdb  --network paseowp_default -v "$PW
 
 ## AWS Services
 
-- Using the AWS CDK
+### Aws System Manager Parameter Store - SSM
 
-* Using TypeScript, start watch command.
+```sh
+$ aws ssm put-parameter --name "WORDPRESS_DB_HOST" --type "String" --value "172.26.15.42"
+```
+
+- Using the command line client.
+
+* Using the AWS CDK
+
+- Using TypeScript, start watch command.
   `npm run watch`
 
-* Set _env_ in _bin/aws_cdk.ts_.
+- Set _env_ in _bin/aws_cdk.ts_.
 
 https://docs.aws.amazon.com/cdk/api/latest/
-
-Paramter Store - AWS Systems Manager - Parameter Store
 
 - Be sure to run `npm run watch`
 

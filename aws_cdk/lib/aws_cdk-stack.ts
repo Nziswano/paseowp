@@ -1,12 +1,10 @@
 import * as cdk from "@aws-cdk/core";
 import * as ec2 from "@aws-cdk/aws-ec2";
 import * as ecs from "@aws-cdk/aws-ecs";
-// import * as ecs_patterns from "@aws-cdk/aws-ecs-patterns";
-// import { EcrImage } from "@aws-cdk/aws-ecs";
+import * as dotenv from "dotenv";
 import * as ecr from "@aws-cdk/aws-ecr";
 // import * as ssm from "@aws-cdk/aws-ssm";
 import * as apigateway from "@aws-cdk/aws-apigateway";
-// import { DockerImageAsset } from "@aws-cdk/aws-ecr-assets";
 
 export class AwsCdkStack extends cdk.Stack {
   constructor(scope: cdk.Construct, id: string, props?: cdk.StackProps) {
@@ -25,7 +23,7 @@ export class AwsCdkStack extends cdk.Stack {
       isDefault: true,
     });
 
-    const cluster = new ecs.Cluster(this, "MyCluster", {
+    const cluster = new ecs.Cluster(this, "NziswanoCluster", {
       vpc: vpc,
     });
 
@@ -36,17 +34,20 @@ export class AwsCdkStack extends cdk.Stack {
 
     // create a task definition with CloudWatch Logs
     const logging = new ecs.AwsLogDriver({
-      streamPrefix: "myapp",
+      streamPrefix: "nziswano_wordpress",
     });
 
     const taskDefinition = new ecs.FargateTaskDefinition(
       this,
-      "wordpress_fargate",
+      "nziswano_fargate",
       {
         family: "nziswano_fargate",
-        volumes: [{ name: "wordpress" }],
       }
     );
+
+    taskDefinition.addVolume({
+      name: "wordpress",
+    });
 
     const wordpressContainerProps = {
       image: ecs.ContainerImage.fromEcrRepository(
@@ -54,13 +55,6 @@ export class AwsCdkStack extends cdk.Stack {
         "wordpress_latest"
       ),
       taskDefinition: taskDefinition,
-      mountPoints: [
-        {
-          readOnly: false,
-          containerPath: "/var/www/html",
-          sourcVolume: "wordpress",
-        },
-      ],
       environment: {
         AUTH_KEY: process.env.AUTH_KEY,
         AUTH_SALT: process.env.AUTH_SALT,
@@ -71,7 +65,7 @@ export class AwsCdkStack extends cdk.Stack {
         NONCE_SALT: process.env.NONCE_SALT,
         SECURE_AUTH_KEY: process.env.SECURE_AUTH_KEY,
         SECURE_AUTH_SALT: process.env.SECURE_AUTH_SALT,
-        WORDPRESS_DB_HOST: process.env.WORDPRESS_DB_HOST,
+        WORDPRESS_DB_HOST: "172.26.15.42",
         WORDPRESS_DB_NAME: process.env.WORDPRESS_DB_NAME,
         WORDPRESS_DB_PASSWORD: process.env.WORDPRESS_DB_PASSWORD,
         WORDPRESS_DB_USER: process.env.WORDPRESS_DB_USER,
@@ -80,20 +74,35 @@ export class AwsCdkStack extends cdk.Stack {
       logging: logging,
     };
 
+    const wordpressContainer = new ecs.ContainerDefinition(
+      this,
+      "wordpress",
+      wordpressContainerProps
+    );
+
+    wordpressContainer.addMountPoints({
+      readOnly: false,
+      containerPath: "/var/www/html",
+      sourceVolume: "wordpress",
+    });
+
     const nginxContainerProps = {
       image: ecs.ContainerImage.fromEcrRepository(repository, "nginx_latest"),
       taskDefinition: taskDefinition,
-      mountPoints: [
-        {
-          readOnly: true,
-          containerPath: "/var/www/html",
-          sourcVolume: "wordpress",
-        },
-      ],
       logging: logging,
+      essential: false,
     };
 
-    taskDefinition.addContainer("wordpress", wordpressContainerProps);
-    taskDefinition.addContainer("nginx", nginxContainerProps);
+    const nginxContainer = new ecs.ContainerDefinition(
+      this,
+      "nginx",
+      nginxContainerProps
+    );
+
+    nginxContainer.addMountPoints({
+      readOnly: true,
+      containerPath: "/var/www/html",
+      sourceVolume: "wordpress",
+    });
   }
 }

@@ -1,38 +1,63 @@
+# Wordpress as a backend service.
 
-# Multi-site Wordpress Docker Image
-* Access wordpress instance via REST API
-* Uses `composer.json` to manage the wordpress code.
+## Wordpress as a 12 factor app [The Twelve Factor App](https://12factor.net/)
 
-## Wordpress Settings
-* `define('DB_HOST', ':/var/lib/mysql/mysql.sock');`
-* Generate a salt `md5 -s "random salt again nonce_in my_kcy"`
+## Run Local Image
 
-## Build a Wordpress Image
-* [Dockerise with PHP-fpm and nginx](http://geekyplatypus.com/dockerise-your-php-application-with-nginx-and-php7-fpm/)
-### Build Docker file
-* Build with argument - We pass in the github auth token currently stored in **.env** file
-* `export GITHUB_AUTH='{"github-oauth":{"github.com": "xxx"}}'`
-* `export DOCKER_BUILDKIT=1`
-* `docker build --build-arg GITHUB_AUTH -t paseo:wordpress .`
+- Create **.env** file. Look at example.env
+  - To generate custom salts `openssl rand -base64 35` - Will generate 35 character custom salts.
+- `export DOCKER_BUILDKIT=1` - Will parallize the build of the docker image.
+- Start Wordpress and Nginx.
 
-## Push image to AWS ECR Repository
 ```
-aws ecr get-login-password --region eu-central-1 | docker login --username AWS --password-stdin {ecr}.dkr.ecr.eu-central-1.amazonaws.com/paseo
-docker tag paseo:wordpress {ecr}.dkr.ecr.eu-central-1.amazonaws.com/paseo:wordpress
-docker push {ecr}.dkr.ecr.eu-central-1.amazonaws.com/paseo:wordpress
+docker-compose up
 ```
 
+- Start Mysql Server
 
-## Build with Microsoft Azure Devops
-* Command line client
-  * `docker run -it mcr.microsoft.com/azure-cli`
-### Azure Pipelines
-* Microsoft Pipeline
-  * [Docker Tasks](https://docs.microsoft.com/en-us/azure/devops/pipelines/tasks/build/docker?view=azure-devops)
-  * `DOCKER_BUILDKIT=1 docker build . --build-arg GITHUB_AUTH='{"github-oauth":{"github.com": "xxx"}}' -t paseo:wordpress`
-  * Github Tokens
-    * [Tokens](https://github.com/settings/tokens
-    *  [Managing Composer Github Access](https://www.previousnext.com.au/blog/managing-composer-github-access-personal-access-tokens)
-    * `export COMPOSER_AUTH='{"github-oauth":{"github.com":"xxxxx"}}`
-* Azure Devops Notes
-report.status = Reporting::Report::statuses[:generated];
+```
+docker run --env-file .env --name wordpressdb  --network paseowp_default -v "$PWD/database":/var/lib/mysql -p 3306:3306 -p 33060:33060 mysql:latest
+```
+
+- Connect to server at `http://localhost:7000`
+- Should see the Wordpress Admin install page
+
+## AWS Services - This creates the complete infrastructure for running this service.
+
+### Aws System Manager Parameter Store - SSM
+
+- Using `update_ssm.sh` to update **.env** variables on ssm manager.
+
+* `./update_ssm.sh .env` - **.env** is the name for the file with the environmental variables.
+
+### Using the AWS CDK
+
+- [CDK API Docs](https://docs.aws.amazon.com/cdk/api/latest/)
+
+* Using TypeScript, start watch command. Need this to compile TypeScript into JavaScript.
+* `$ npm run watch`
+* Set _env_ in _bin/aws_cdk.ts_.
+
+```json
+const current_config = {
+  region: "eu-central-1",
+  account: "338196870821",
+};
+
+const app = new cdk.App();
+new AwsCdkStack(app, "AwsCdkStack", {
+  env: current_config,
+});
+```
+
+- Configuration is done in **lib/aws_cdk-stack.ts**
+
+* Update the _aws_cdk-stack.ts_ file
+* `$ cdk deploy` - deploys all the latest changes.
+
+## Building and deploying images using Github
+
+- Will automatically update the ecs service.
+
+* [Github AWS Actions](https://github.com/aws-actions)
+  - [Render Task Definition](https://github.com/aws-actions/amazon-ecs-render-task-definition)

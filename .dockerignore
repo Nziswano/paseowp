@@ -9,3 +9,10 @@ site
 .env
 .env.docker
 TODO.md
+fargate/
+aws_cdk/
+.github
+node_modules
+aws_cdk
+*.md
+*.yml

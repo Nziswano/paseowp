@@ -1,0 +1,130 @@
+{
+    "family": "nziswano_fargate",
+    "executionRoleArn": "arn:aws:iam::338196870821:role/AwsCdkStack-nziswanofargateExecutionRoleDBEBB140-GBMP33B2BYGK",
+    "taskRoleArn": "arn:aws:iam::338196870821:role/AwsCdkStack-nziswanofargateTaskRole9EEB0D9C-JFSVVLBJNM7F",
+    "volumes": [
+        {
+            "efsVolumeConfiguration": null,
+            "name": "wordpress",
+            "host": {
+                "sourcePath": null
+            },
+            "dockerVolumeConfiguration": null
+        }
+    ],
+    "requiresCompatibilities": [
+        "FARGATE"
+    ],
+    "networkMode": "awsvpc",
+    "cpu": "256",
+    "memory": "512",
+    "containerDefinitions": [
+        {
+            "logConfiguration": {
+                "logDriver": "awslogs",
+                "secretOptions": [],
+                "options": {
+                    "awslogs-group": "AwsCdkStack-nginxcontainerLogGroup730B47B7-1RXYMXZNYGCXQ",
+                    "awslogs-region": "eu-central-1",
+                    "awslogs-stream-prefix": "nziswano_wordpress"
+                }
+            },
+            "portMappings": [
+                {
+                    "hostPort": 80,
+                    "protocol": "tcp",
+                    "containerPort": 80
+                }
+            ],
+            "mountPoints": [
+                {
+                    "readOnly": true,
+                    "containerPath": "/var/www/html",
+                    "sourceVolume": "wordpress"
+                }
+            ],
+            "image": "338196870821.dkr.ecr.eu-central-1.amazonaws.com/nziswano:nginx_latest",
+            "name": "nginx_container"
+        },
+        {
+            "name": "wordpress_container",
+            "mountPoints": [
+                {
+                    "readOnly": false,
+                    "containerPath": "/var/www/html",
+                    "sourceVolume": "wordpress"
+                }
+            ],
+            "logConfiguration": {
+                "logDriver": "awslogs",
+                "secretOptions": [],
+                "options": {
+                    "awslogs-group": "AwsCdkStack-wordpresscontainerLogGroup5C174F18-1018RWX8E90ZS",
+                    "awslogs-region": "eu-central-1",
+                    "awslogs-stream-prefix": "nziswano_wordpress"
+                }
+            },
+            "image": "338196870821.dkr.ecr.eu-central-1.amazonaws.com/nziswano:wordpress_latest",
+            "environment": [
+                {
+                    "name": "WP_DEBUG",
+                    "value": "false"
+                }
+            ],
+            "secrets": [
+                {
+                    "name": "AUTH_KEY",
+                    "valueFrom": "arn:aws:ssm:eu-central-1:338196870821:parameter/AUTH_KEY"
+                },
+                {
+                    "name": "AUTH_SALT",
+                    "valueFrom": "arn:aws:ssm:eu-central-1:338196870821:parameter/AUTH_SALT"
+                },
+                {
+                    "name": "LOGGED_IN_KEY",
+                    "valueFrom": "arn:aws:ssm:eu-central-1:338196870821:parameter/LOGGED_IN_KEY"
+                },
+                {
+                    "name": "LOGGED_IN_SALT",
+                    "valueFrom": "arn:aws:ssm:eu-central-1:338196870821:parameter/LOGGED_IN_SALT"
+                },
+                {
+                    "name": "MY_KEY",
+                    "valueFrom": "arn:aws:ssm:eu-central-1:338196870821:parameter/MY_KEY"
+                },
+                {
+                    "name": "NONCE_KEY",
+                    "valueFrom": "arn:aws:ssm:eu-central-1:338196870821:parameter/NONCE_KEY"
+                },
+                {
+                    "name": "NONCE_SALT",
+                    "valueFrom": "arn:aws:ssm:eu-central-1:338196870821:parameter/NONCE_SALT"
+                },
+                {
+                    "name": "SECURE_AUTH_KEY",
+                    "valueFrom": "arn:aws:ssm:eu-central-1:338196870821:parameter/SECURE_AUTH_KEY"
+                },
+                {
+                    "name": "SECURE_AUTH_SALT",
+                    "valueFrom": "arn:aws:ssm:eu-central-1:338196870821:parameter/SECURE_AUTH_SALT"
+                },
+                {
+                    "name": "WORDPRESS_DB_HOST",
+                    "valueFrom": "arn:aws:ssm:eu-central-1:338196870821:parameter/WORDPRESS_DB_HOST"
+                },
+                {
+                    "name": "WORDPRESS_DB_NAME",
+                    "valueFrom": "arn:aws:ssm:eu-central-1:338196870821:parameter/WORDPRESS_DB_NAME"
+                },
+                {
+                    "name": "WORDPRESS_DB_PASSWORD",
+                    "valueFrom": "arn:aws:ssm:eu-central-1:338196870821:parameter/WORDPRESS_DB_PASSWORD"
+                },
+                {
+                    "name": "WORDPRESS_DB_USER",
+                    "valueFrom": "arn:aws:ssm:eu-central-1:338196870821:parameter/WORDPRESS_DB_USER"
+                },
+            ]
+        }
+    ]
+}
